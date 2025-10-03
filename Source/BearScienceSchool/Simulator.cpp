@@ -22,6 +22,10 @@ void ASimulator::BeginPlay()
 void ASimulator::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	flying_impulse = GetActorLocation();
+	flying_impulse.Z = GetActorLocation().Z + 1;
+	SetActorLocation(flying_impulse);
+
 
 }
 

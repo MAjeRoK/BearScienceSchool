@@ -10,6 +10,7 @@ UCLASS()
 class BEARSCIENCESCHOOL_API ASimulator : public AActor
 {
 	GENERATED_BODY()
+	FVector flying_impulse;
 	
 public:	
 	// Sets default values for this actor's properties
