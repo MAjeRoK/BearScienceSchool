@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>School Notebook</title>
+    <link rel="stylesheet" href="katex.min.css">
+    <style>
+    body {
+        font-size: 2em;
+      }
+    </style>
+    <script src="katex.min.js"></script>
+    <script src="auto-render.min.js"></script>
+    <script src="markdown-it.min.js"></script>
+    <link rel="stylesheet" href="default.min.css">
+    <script src="highlight.min.js"></script>
+</head>
+<body>
+    <h1>This page is loaded!</h1>
+<main type="text/markdown" id="maintext">
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+``` js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+</main>
+</body>
+<script>
+const md = markdownit();
+document.body.innerHTML = md.render(maintext.innerHTML);
+
+const rawtext = `
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+Right aligned columns
+
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+## Equactions
+
+When \\\\(a \\ne 0\\\\), there are two solutions to \\\\(ax^2 + bx + c = 0\\\\) and they are
+\\\\[x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.\\\\]
+But if \\(a = 0\\), the equation translates to \\\\(bx + c = 0\\\\) and the asnwer is
+\\\\[x = -{c \\over b}.\\\\]
+`;
+document.body.innerHTML += md.render(rawtext);
+
+const string = `
+# markdown-it rulezz!
+
+Stupid _text_
+`;
+
+const result = md.render(string);
+document.body.innerHTML += result;
+
+renderMathInElement(document.body);
+document.body.innerHTML += katex.renderToString("c = \\pm\\sqrt{a^2 + b^2}", {throwOnError: false});
+hljs.highlightAll();
+</script>
+<style>
+    body {margin: 0px; color: black; line-height: normal;}
+    p {text-align:justify;}
+    h1, h2, h3, h4, h5, h6 {text-align: center;}
+    table {border-collapse: collapse; margin-left: auto; margin-right: auto; width: 90%;}
+    th, td {border: thin solid black; padding: 0.1cm 0.1cm;}
+    img {max-width: 100%; display: block; margin-left: auto; margin-right: auto;}
+    svg {max-width: 100%; display: block; margin-left: auto; margin-right: auto;}
+</style>
+</html>
