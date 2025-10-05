@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>School Formulas</title>
+    <link rel="stylesheet" href="katex.min.css">
+    <style>
+    body {
+        font-size: 2em;
+      }
+    </style>
+    <script src="katex.min.js"></script>
+    <script src="markdown-it.min.js"></script>
+</head>
+<body>
+    <h3>Ваша формула:</h3>
+    <span class="katex-display" id="formula">
+    </span>
+</body>
+<script>
+
+const string = `
+c = \\pm\\sqrt{a^2 + b^2}
+`;
+
+formula.innerHTML = katex.renderToString(string, {throwOnError: false});
+</script>
+<style>
+    body {margin: 0px; color: black; line-height: normal;}
+    p {text-align:justify;}
+    h1, h2, h3, h4, h5, h6 {text-align: center;}
+    table {border-collapse: collapse; margin-left: auto; margin-right: auto; width: 90%;}
+    th, td {border: thin solid black; padding: 0.1cm 0.1cm;}
+    img {max-width: 100%; display: block; margin-left: auto; margin-right: auto;}
+    svg {max-width: 100%; display: block; margin-left: auto; margin-right: auto;}
+</style>
+</html>
