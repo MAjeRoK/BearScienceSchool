@@ -38,5 +38,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Solar")
 	bool isDay;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Solar")
+	float EnergyStolen;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Solar")   // Event (при этом событии сделать что-то)
+	void OnEnergyCharged();
+
 
 };

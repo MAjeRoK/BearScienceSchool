@@ -33,6 +33,15 @@ void ASolarPanel::Tick(float DeltaTime)
 
 		ProgressRange = CurrentEnergy / MaxEnergy;
 	}
+	if (EnergyStolen > 0) {
+		CurrentEnergy -= EnergyStolen;
+		CurrentEnergy = FMath::Clamp(CurrentEnergy, 0.f, MaxEnergy);
+		
+		OnEnergyCharged();
+		EnergyStolen = 0;
+
+		
+	}
 
 }
 
